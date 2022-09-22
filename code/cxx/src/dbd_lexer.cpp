@@ -5,7 +5,7 @@
 #include <vector>
 #include <iostream>
 
-constexpr float ITEM_RESERVE_RATIO = 0.65; // guess value, worked the best while testing
+constexpr float ITEM_RESERVE_RATIO = 0.65f; // guess value, worked the best while testing
 
 namespace dbd
 {
@@ -13,7 +13,7 @@ namespace dbd
         : m_text(text)
         , m_filename(filename)
     {
-        m_items.reserve(text.size() * ITEM_RESERVE_RATIO);
+        m_items.reserve(static_cast<size_t>(text.size() * ITEM_RESERVE_RATIO));
         while (m_index < m_text.size())
         {
             size_t start = m_index;
